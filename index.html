@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyChef - Recipe Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
+                    <path d="M7 2v20"></path>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
+                </svg>
+                <span class="logo-text">MyChef</span>
+            </div>
+
+            <div class="search-bar">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="text" id="searchInput" placeholder="Search recipes..." class="search-input">
+            </div>
+
+            <nav class="nav">
+                <a href="#" class="nav-link active" data-page="home">Home</a>
+                <a href="#" class="nav-link" data-page="add">Add Recipe</a>
+                <a href="#" class="nav-link" data-page="favorites">Favorites</a>
+                <a href="#" class="nav-link" data-page="login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Home Page -->
+        <div id="homePage" class="page active">
+            <div class="container hero-section">
+                <h1 class="hero-title">Discover Delicious Recipes</h1>
+                <p class="hero-subtitle">Explore, cook, and share your favorite dishes with our community</p>
+            </div>
+
+            <div class="container">
+                <div class="recipe-grid" id="recipeGrid">
+                    <!-- Recipe cards will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe Detail Page -->
+        <div id="detailPage" class="page">
+            <div class="container detail-container">
+                <button class="back-button" id="backButton">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back to Recipes
+                </button>
+
+                <div class="detail-content" id="detailContent">
+                    <!-- Recipe details will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Recipe Page -->
+        <div id="addPage" class="page">
+            <div class="container form-container">
+                <button class="back-button" id="addBackButton">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back to Recipes
+                </button>
+
+                <div class="form-card">
+                    <h2>Add New Recipe</h2>
+                    <p class="form-subtitle">Share your culinary creation with the community</p>
+
+                    <form id="addRecipeForm" class="recipe-form">
+                        <div class="form-group">
+                            <label for="recipeTitle">Recipe Title</label>
+                            <input type="text" id="recipeTitle" placeholder="e.g., Grandma's Chocolate Chip Cookies" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipeDescription">Description</label>
+                            <textarea id="recipeDescription" rows="3" placeholder="Brief description of your recipe..." required></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="recipeCuisine">Cuisine Type</label>
+                                <input type="text" id="recipeCuisine" placeholder="e.g., Italian, Mexican" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="recipeCookTime">Cook Time</label>
+                                <input type="text" id="recipeCookTime" placeholder="e.g., 30 min" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="recipeServings">Servings</label>
+                                <input type="number" id="recipeServings" placeholder="4" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipeIngredients">Ingredients</label>
+                            <textarea id="recipeIngredients" rows="6" placeholder="Enter each ingredient on a new line..." required></textarea>
+                            <small class="form-help">Enter one ingredient per line</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipeInstructions">Instructions</label>
+                            <textarea id="recipeInstructions" rows="8" placeholder="Enter each step on a new line..." required></textarea>
+                            <small class="form-help">Enter one step per line</small>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary" id="cancelButton">Cancel</button>
+                            <button type="submit" class="btn-primary">Add Recipe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Favorites Page -->
+        <div id="favoritesPage" class="page">
+            <div class="container empty-state">
+                <h2>Your Favorites</h2>
+                <p class="empty-text">Your favorite recipes will appear here. Start exploring and save the ones you love!</p>
+            </div>
+        </div>
+
+        <!-- Login Page -->
+        <div id="loginPage" class="page">
+            <div class="container empty-state">
+                <h2>Login</h2>
+                <p class="empty-text">Login functionality would be implemented here with a proper authentication system.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>© 2025 MyChef. Share the joy of cooking.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
